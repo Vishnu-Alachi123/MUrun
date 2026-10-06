@@ -1,0 +1,29 @@
+<!-- Add these keys inside the <dict> of ios/MUrun/Info.plist -->
+
+<!-- Background audio — lets the Spotify Remote connection stay alive when screen is off -->
+<key>UIBackgroundModes</key>
+<array>
+    <string>audio</string>
+    <string>fetch</string>
+</array>
+
+<!-- Spotify OAuth redirect URL scheme -->
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>murun</string>
+        </array>
+    </dict>
+</array>
+
+<!-- Accelerometer usage description (iOS requires this) -->
+<key>NSMotionUsageDescription</key>
+<string>MUrun uses motion sensors to automatically detect your running cadence.</string>
+
+<!-- Allow Spotify app communication -->
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>spotify</string>
+</array>
