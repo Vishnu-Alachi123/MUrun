@@ -28,35 +28,31 @@ with your actual Client ID from Step 1.
 
 ---
 
-## Step 3 — Install dependencies
+## Step 3 — Run setup script
+
+This generates the native `ios/` folder, installs npm packages, patches
+`Info.plist`, and runs `pod install` — all in one step:
 
 ```bash
-npm install
-cd ios && pod install && cd ..
+bash setup.sh
 ```
 
----
-
-## Step 4 — Patch Info.plist
-
-Open `ios/MUrun/Info.plist` in Xcode and add the contents of
+If the Info.plist auto-patch fails, manually add the contents of
 `ios-patches/Info.plist.additions.xml` inside the root `<dict>`.
 
-Key additions:
-- `UIBackgroundModes: [audio]` — keeps connection alive when screen is off
-- `CFBundleURLTypes: [murun]` — Spotify OAuth redirect
-- `NSMotionUsageDescription` — accelerometer permission prompt text
-- `LSApplicationQueriesSchemes: [spotify]` — allow opening Spotify
-
 ---
 
-## Step 5 — Build & Run
+## Step 4 — Build & Run
 
+```bash
+open ios/MUrun.xcworkspace
+# Select your iPhone in Xcode → press Run
+```
+
+Or from terminal:
 ```bash
 npx react-native run-ios --device "Your iPhone Name"
 ```
-
-Or open `ios/MUrun.xcworkspace` in Xcode and press Run.
 
 ---
 
